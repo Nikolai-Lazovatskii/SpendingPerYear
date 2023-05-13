@@ -1,9 +1,10 @@
+import CostForm from './CostForm'
 import './newCost.css'
 
 const NewCost = () => {
   return (
-    <div>
-      <form action=""></form>
+    <div className='new-cost'>
+      <CostForm />
     </div>
   )
 }
