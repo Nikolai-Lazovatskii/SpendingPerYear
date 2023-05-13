@@ -1,7 +1,8 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 import "./costForm.css";
 
-const CostForm = () => {
+const CostForm = (props) => {
   // const [userInput, changeUserInput] = useState({
   //   name: "",
   //   amount: "",
@@ -50,8 +51,14 @@ const CostForm = () => {
     const costData = {
       name: inputName,
       amount: inputAmount,
-      date: inputDate,
-    }
+      date: new Date(inputDate),
+    };
+
+    props.onCostData(costData);
+
+    changeName("");
+    changeAmount("");
+    changeDate("");
   };
 
   return (
@@ -59,7 +66,7 @@ const CostForm = () => {
       <div className="new-cost__controls">
         <div className="new-cost__control">
           <label>Name</label>
-          <input type="text" onChange={nameChangeHandler} />
+          <input type="text" value={inputName} onChange={nameChangeHandler} />
         </div>
         <div className="new-cost__control">
           <label>Sum</label>
@@ -67,6 +74,7 @@ const CostForm = () => {
             type="number"
             min="0.01"
             step="0.01"
+            value={inputAmount}
             onChange={amountChangeHandler}
           />
         </div>
@@ -76,6 +84,7 @@ const CostForm = () => {
             type="date"
             min="2022-02-24"
             step="2023-12-31"
+            value={inputDate}
             onChange={dateChangeHandler}
           />
         </div>
