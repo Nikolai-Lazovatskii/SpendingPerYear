@@ -56,9 +56,9 @@ const CostForm = (props) => {
 
     props.onCostData(costData);
 
-    changeName("");
-    changeAmount("");
-    changeDate("");
+    changeName('')
+    changeAmount('')
+    changeDate('')
   };
 
   return (

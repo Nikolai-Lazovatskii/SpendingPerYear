@@ -1,36 +1,29 @@
+/* eslint-disable react/jsx-key */
 /* eslint-disable react/prop-types */
 import "./costs.css";
-import CostItem from "./CostItem";
 import Card from "./../ui/Card";
 import CostsFilter from "./CostsFilter";
 import { useState } from "react";
+import CostList from "./CostList";
 
-const Costs = ({ cost }) => {
+const Costs = ({ costs }) => {
   const [selectedYear, changeSelectedYear] = useState("2023");
   const changeYearHandler = (inputYear) => {
     changeSelectedYear(inputYear);
   };
 
+  const filtred = costs.filter(
+    (cost) => +selectedYear === cost.date.getFullYear()
+  );
+
   return (
     <div>
       <CostsFilter year={selectedYear} onChangeYear={changeYearHandler} />
-      <Card className="costs">
-        <CostItem
-          date={cost[0].date}
-          item={cost[0].item}
-          price={cost[0].price}
-        />
-        <CostItem
-          date={cost[1].date}
-          item={cost[1].item}
-          price={cost[1].price}
-        />
-        <CostItem
-          date={cost[2].date}
-          item={cost[2].item}
-          price={cost[2].price}
-        />
-      </Card>
+      <li>
+        <Card className="costs">
+          <CostList costs={filtred} />
+        </Card>
+      </li>
     </div>
   );
 };
