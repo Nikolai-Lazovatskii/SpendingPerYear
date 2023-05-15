@@ -5,14 +5,19 @@ import DiagramBar from "./diagramBar";
 
 const Diagram = (props) => {
 
+    const datsSetValues = props.dataSets.map((set) => set.value)
+
+    const maxMonthCosts = Math.max(...datsSetValues)
+
   return (
     <div className="diagram">
-      {props.dataSet.map((dataSet) => (
+      {props.dataSets.map((dataSet) => (
+        console.log(dataSet.label),
         <DiagramBar
           key={dataSet.label}
           value={dataSet.value}
-          maxValue={null}
-          lable={dataSet.label}
+          maxValue={maxMonthCosts}
+          label={dataSet.label}
         />
       ))}
     </div>
