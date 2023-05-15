@@ -3,46 +3,23 @@ import { useState } from "react";
 import "./costForm.css";
 
 const CostForm = (props) => {
-  // const [userInput, changeUserInput] = useState({
-  //   name: "",
-  //   amount: "",
-  //   date: "",
-  // });
 
   // name
   const [inputName, changeName] = useState("");
   const nameChangeHandler = (event) => {
     changeName(event.target.value);
-    // changeUserInput((previousState) => {
-    //   return {
-    //     ...previousState,
-    //     name: event.targe.value,
-    //   };
-    // });
   };
 
   // amount
   const [inputAmount, changeAmount] = useState("");
   const amountChangeHandler = (event) => {
     changeAmount(event.target.value);
-    // changeUserInput((previousState) => {
-    //   return {
-    //     ...previousState,
-    //     amount: event.targe.value,
-    //   };
-    // });
   };
 
   // date
   const [inputDate, changeDate] = useState("");
   const dateChangeHandler = (event) => {
     changeDate(event.target.value);
-    // changeUserInput((previousState) => {
-    //   return {
-    //     ...previousState,
-    //     date: event.targe.value,
-    //   };
-    // });
   };
 
   const submitHandler = (event) => {
@@ -90,6 +67,7 @@ const CostForm = (props) => {
         </div>
         <div className="new-cost__actions">
           <button type="submit">Add new</button>
+          <button type="button" onClick={props.stateFunc}>Cancel</button>
         </div>
       </div>
     </form>
