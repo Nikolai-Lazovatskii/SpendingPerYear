@@ -18,9 +18,9 @@ const Costs = ({ costs }) => {
 
   return (
     <div>
-      <CostsFilter year={selectedYear} onChangeYear={changeYearHandler} />
       <li>
         <Card className="costs">
+          <CostsFilter year={selectedYear} onChangeYear={changeYearHandler} />
           <CostList costs={filtred} />
         </Card>
       </li>

@@ -36,6 +36,8 @@ const CostForm = (props) => {
     changeName('')
     changeAmount('')
     changeDate('')
+
+    props.stateFunc()
   };
 
   return (
